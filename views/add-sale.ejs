@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+  <div class="entities">
+    <form method="post" action="/add-sale" class="edit-client edit-individuals">
+      <h1>Добавить продажу</h1>
+      <input type="text" name="client" placeholder="Клиент">
+      <input type="text" name="product" placeholder="Продукт" class="product-input">
+      <input type="text" name="count" placeholder="Количество проданной продукции" class="count-input">
+      <input type="text" name="summa" placeholder="Общая стоимость" class="summa-input">
+      <input type="text" name="date" placeholder="Дата продажи" class="price-input">
+      <div class="form-buttons">
+        <input class="input-button" type="submit" value="Submit">
+        <a href="/sales">Отмена</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

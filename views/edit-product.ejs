@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+  <div class="entities">
+    <form method="post" action="/products/edit/<%= product.id %>?_method=PUT" class="edit-client edit-individuals">
+      <h1>Редактирование продукта</h1>
+      <input type="text" name="name" placeholder="Название" value="<%= product.name %>">
+      <input type="text" name="count" placeholder="Количество" class="date-input" value="<%= product.count %>">
+      <input type="text" name="price" placeholder="Цена за единицу" class="passport-input" value="<%= product.price %>">
+      <div class="form-buttons">
+        <input class="input-button" type="submit" value="Submit">
+        <a href="/products">Отмена</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

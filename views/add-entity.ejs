@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+  <div class="entities">
+    <form method="post" action="/add-entity" class="edit-client">
+      <h1>Добавить клиента</h1>
+      <input type="text" name="name" placeholder="Название">
+      <input type="text" name="tpin" placeholder="ИНН">
+      <div class="form-buttons">
+        <input class="input-button" type="submit" value="Submit">
+        <a href="/entities">Отмена</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

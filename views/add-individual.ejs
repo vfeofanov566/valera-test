@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+  <div class="entities">
+    <form method="post" action="/add-individual" class="edit-client edit-individuals">
+      <h1>Добавить клиента</h1>
+      <input type="text" name="name" placeholder="Название">
+      <input type="text" name="date" placeholder="Дата рождения" class="date-input">
+      <input type="text" name="passport" placeholder="Номер паспорта" class="passport-input">
+      <div class="form-buttons">
+        <input class="input-button" type="submit" value="Submit">
+        <a href="/individuals">Отмена</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    let inputButton = document.querySelector('.input-button');
+    let dateInpit = documant.querySelector('.date-input');
+    let passportInput = documant.querySelector('.passport-input');
+
+    inputButton.addEventListener('click', () => {
+      if (!dateInpit.value) {
+        dateInpit.value = '';
+      }
+      if (!passportInpit.value) {
+        passportInpit.value = '';
+      }
+    })
+  </script>
+</body>
+</html>

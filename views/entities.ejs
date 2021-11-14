@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <%- include('./partials/nav.ejs') %>
+    <div class="clients">
+        <div class="client-head">
+            <div class="client__name">Название</div>
+            <div class="client__tpin">ИНН</div>
+            <div class="buttons-client"></div>
+        </div>
+        <% if (entities.length) { %>
+            <% entities.forEach(({id, name, tpin}) => { %>
+                <div class="client">
+                    <div class="client__name"><%= name %></div>
+                    <div class="client__tpin"><%= tpin %></div>
+                    <div class="buttons-client">
+                        <a href="/edit/<%= id %>" class="btn-edit">Редактировать</a>
+                        <button class="btn-clear" data-id="<%= id %>">Удалить</button>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+        <a href="/add-entity" class="client-add">Добавить</a>
+    </div>
+    <script>
+      document.addEventListener('click', (e) => {
+      const id = e.target?.dataset?.id || null;
+      if (id) {
+        fetch(`/entities/${id}`, {
+          method: 'DELETE',
+        }).then(() => {
+          window.location.reload();
+        });
+      }
+    });
+    </script>
+</body>
+</html>

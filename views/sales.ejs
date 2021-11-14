@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <div class="clients">
+        <div class="client-head">
+            <div class="client__client">Клиент</div>
+            <div class="client__product">Продукт</div>
+            <div class="client__count">Количество продажей продукции</div>
+            <div class="client__summa">Общая стоимость</div>
+            <div class="client__date">Дата продажи</div>
+            <div class="buttons-client"></div>
+        </div>
+        <% if (sales.length) { %>
+            <% sales.forEach(({id, client, product, count, summa, date}) => { %>
+                <div class="client">
+                    <div class="client__client"><%= client %></div>
+                    <div class="client__product"><%= product %></div>
+                    <div class="client__count"><%= count %></div>
+                    <div class="client__summa"><%= summa %></div>
+                    <div class="client__date"><%= date %></div>
+                    <div class="buttons-client">
+                        <a href="/sales/edit/<%= id %>" class="btn-edit">Редактировать</a>
+                        <button class="btn-clear" data-id="<%= id %>">Удалить</button>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+        <a href="/add-sale" class="client-add">Добавить</a>
+    </div>
+    <script>
+      document.addEventListener('click', (e) => {
+      const id = e.target?.dataset?.id || null;
+      if (id) {
+        fetch(`/sales/${id}`, {
+          method: 'DELETE',
+        }).then(() => {
+          window.location.reload();
+        });
+      }
+    });
+    </script>
+</body>
+</html>
