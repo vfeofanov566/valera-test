@@ -19,7 +19,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 mongoose
-    .connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+    .connect('mongodb+srv://vfeofanov566:feof7980@cluster0.gnqvs.mongodb.net/systemSales?retryWrites=true&w=majorityretryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
     .then((res) => console.log(successMsg('Connected to DB')))
     .catch((error) => console.log(errorMsg(error)));
 
