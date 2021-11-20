@@ -7,14 +7,16 @@ const handleError = (res, error) => {
 }
 
 const getEntities = (req, res) => {
+  const title = 'Юридическое лицо';
   Entity
     .find()
-    .then((entities) => res.render(createPath('entities'), {entities}))
+    .then((entities) => res.render(createPath('entities'), {entities, title}))
     .catch((error) => handleError(res, error));
 }
 
 const getAddEntity = (req, res) => {
-  res.render(createPath('add-entity'));
+  const title = 'Добавление клиента';
+  res.render(createPath('add-entity'), {title});
 }
 
 const addEntity = (req, res) => {
@@ -37,9 +39,10 @@ const deleteEntity = (req, res) => {
 }
 
 const getEditEntity = (req, res) => {
+  const title = 'Юридическое лицо';
   Entity
     .findById(req.params.id)
-    .then(entity => res.render(createPath('edit-entity'), { entity }))
+    .then(entity => res.render(createPath('edit-entity'), { entity, title }))
     .catch((error) => handleError(res, error));
 }
 

@@ -5,13 +5,22 @@
   <div class="entities">
     <form method="post" action="/add-entity" class="edit-client">
       <h1>Добавить клиента</h1>
+      <p class="label">Название</p>
       <input type="text" name="name" placeholder="Название">
-      <input type="text" name="tpin" placeholder="ИНН">
+      <p class="label">ИНН</p>
+      <input type="number" name="tpin" placeholder="ИНН">
       <div class="form-buttons">
-        <input class="input-button" type="submit" value="Submit">
+        <input class="input-button" type="submit" value="Добавить" disabled>
         <a href="/entities">Отмена</a>
       </div>
     </form>
   </div>
+  <div class="module-error">
+    ИНН может состоять только из 12 цифр
+  </div>
+  <script>
+    let inputButton = document.querySelector('.input-button');
+    inputButton.disabled = false;
+  </script>
 </body>
 </html>

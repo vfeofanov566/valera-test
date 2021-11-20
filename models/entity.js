@@ -7,7 +7,7 @@ const entitySchema = new Schema({
     required: true
   },
   tpin: {
-    type: String,
+    type: Number,
     required: true
   }
 });

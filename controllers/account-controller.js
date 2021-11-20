@@ -7,9 +7,10 @@ const handleError = (res, error) => {
 }
 
 const getAccount = (req, res) => {
+    const title = 'Авторизация';
     Account
         .find()
-        .then((accounts) => res.render(createPath('accounts'), {accounts}))
+        .then((accounts) => res.render(createPath('accounts'), {accounts, title}))
         .catch((error) => handleError(res, error));
 }
 
